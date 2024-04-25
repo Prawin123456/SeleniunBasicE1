@@ -1,0 +1,23 @@
+package advanceSelenium;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+public class ToLearnDependsOnMethods {
+	
+	@Test
+	public void createdAccount() {
+		Reporter.log("account created",true);
+		
+	}
+	@Test(dependsOnMethods = "createdAccount")
+	public void editeddAccount() {
+		Reporter.log("account edited",true);
+		
+
+}
+	@Test(dependsOnMethods = "editeddAccount")
+	public void deleteddAccount() {
+		Reporter.log("account deleted",true);
+	}
+}
